@@ -1,12 +1,16 @@
 const mongoose = require('mongoose')
 
-const TodoSchema = new mongoose.Schema({
-  todo: {
+const IngredientSchema = new mongoose.Schema({
+  ingredient: {
     type: String,
     required: true,
   },
   completed: {
     type: Boolean,
+    required: true,
+  },
+  recipe: {
+    type: String,
     required: true,
   },
   userId: {
@@ -15,4 +19,4 @@ const TodoSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Todo', TodoSchema)
+module.exports = mongoose.model('Ingredient', IngredientSchema, 'ingredients')

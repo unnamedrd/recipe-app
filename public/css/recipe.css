@@ -1,0 +1,25 @@
+.recipeList {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    width: 50%;
+    height: 50vh;
+}
+
+.recipeItem  a{
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+}
+.recipeTitle{
+    display: inline-block;
+}
+.recipeTitle:hover {
+    color: chocolate;
+}
+.recipeItem {
+    list-style: none;
+    width: 50%;
+    border-bottom: 1px solid lightgrey
+}

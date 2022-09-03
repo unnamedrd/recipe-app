@@ -1,29 +1,27 @@
 const deleteBtn = document.querySelectorAll('.del')
-const recipeItem = document.querySelectorAll('span.not')
-
-
-
+const ingredientItem = document.querySelectorAll('span.not')
+const ingredientComplete = document.querySelectorAll('span.completed')
 
 Array.from(deleteBtn).forEach((el)=>{
-    el.addEventListener('click', deleteTodo)
+    el.addEventListener('click', deleteIngredient)
 })
 
-Array.from(todoItem).forEach((el)=>{
+Array.from(ingredientItem).forEach((el)=>{
     el.addEventListener('click', markComplete)
 })
 
-Array.from(todoComplete).forEach((el)=>{
+Array.from(ingredientComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
 
-async function deleteTodo(){
-    const todoId = this.parentNode.dataset.id
+async function deleteIngredient(){
+    const ingredientId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/deleteTodo', {
+        const response = await fetch('ingredients/deleteIngredient', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'todoIdFromJSFile': ingredientId
             })
         })
         const data = await response.json()
@@ -35,13 +33,13 @@ async function deleteTodo(){
 }
 
 async function markComplete(){
-    const todoId = this.parentNode.dataset.id
+    const ingredientId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/markComplete', {
+        const response = await fetch('ingredients/markComplete', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'todoIdFromJSFile': ingredientId
             })
         })
         const data = await response.json()
@@ -53,13 +51,13 @@ async function markComplete(){
 }
 
 async function markIncomplete(){
-    const todoId = this.parentNode.dataset.id
+    const ingredientId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/markIncomplete', {
+        const response = await fetch('ingredients/markIncomplete', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'todoIdFromJSFile': ingredientId
             })
         })
         const data = await response.json()

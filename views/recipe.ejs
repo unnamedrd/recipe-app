@@ -5,28 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/recipe.css">
+
 </head>
 <body>
     <h1>Recipes</h1>
-    <ul>
-    <% recipes.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.recipe %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+ 
+        <ul class="recipeList">
+            <% recipes.forEach( el => { %>
+                    <li class='recipeItem' data-id='<%=el._id%>'>
+                        <a href="/ingredients/<%=el.recipeName%>"><span class="recipeTitle"> <%= el.recipeName %></span></a>
+                        <span class='del'> Delete </span>
+                    </li>
+                    
+            <% }) %>    
+            </ul>
+        
+            <h2><%= user.userName %>, you have <%= count %> recipes!</h2>
+  
+   
 
-    <form action="/todos/createRecipe" method='POST'>
-        <input type="text" placeholder="Enter Recipe Name" name='recipeItem'>
+    <form action="/recipes/createRecipe" method='POST'>
+        <input type="text" placeholder="Enter Recipe Name" name='recipeName'>
         <input type="submit">
     </form>
 
     <a href="/logout">Logout</a>
 
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/recipe.js"></script>
 </body>
 </html>

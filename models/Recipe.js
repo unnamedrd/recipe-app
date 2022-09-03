@@ -7,7 +7,6 @@ const RecipeSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: true,
   },
   userId: {
     type: String,
@@ -16,4 +15,4 @@ const RecipeSchema = new mongoose.Schema({
 })
 // look into images later...
 
-module.exports = mongoose.model('Recipe', RecipeSchema)
+module.exports = mongoose.model('Recipe', RecipeSchema,'recipes')
