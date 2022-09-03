@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/ingredient.css">
 </head>
 <body>
@@ -17,7 +17,7 @@
     <h1><%= recipeName.recipeName %> Ingredients</h1>
     <ul>
         <% ingredients.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
+            <li class='ingredientItem' data-id='<%=el._id%>'>
                 <span class="<%= el.completed === true ? 'completed' : 'not'%>"> <%= el.ingredient %></span>
                 <span class='del'> Delete </span>
             </li>

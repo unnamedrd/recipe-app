@@ -2,13 +2,11 @@
     display: flex;
     flex-flow: column wrap;
     justify-content: space-between;
-    width: 50%;
-    height: 50vh;
+    width: 100%;
 }
 
 .recipeItem  a{
-    display: flex;
-    justify-content: space-between;
+    display: inline-block;
     text-decoration: none;
     color: black;
 }
@@ -19,7 +17,10 @@
     color: chocolate;
 }
 .recipeItem {
+    display: flex;
+    justify-content: space-between;
     list-style: none;
-    width: 50%;
-    border-bottom: 1px solid lightgrey
+    width: 25%;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 2%;
 }

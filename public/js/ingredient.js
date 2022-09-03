@@ -17,7 +17,7 @@ Array.from(ingredientComplete).forEach((el)=>{
 async function deleteIngredient(){
     const ingredientId = this.parentNode.dataset.id
     try{
-        const response = await fetch('ingredients/deleteIngredient', {
+        const response = await fetch(`${ingredientId}/deleteIngredient`, {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -35,7 +35,7 @@ async function deleteIngredient(){
 async function markComplete(){
     const ingredientId = this.parentNode.dataset.id
     try{
-        const response = await fetch('ingredients/markComplete', {
+        const response = await fetch(`${ingredientId}/markComplete`, {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -53,7 +53,7 @@ async function markComplete(){
 async function markIncomplete(){
     const ingredientId = this.parentNode.dataset.id
     try{
-        const response = await fetch('ingredients/markIncomplete', {
+        const response = await fetch(`${ingredientId}/markIncomplete`, {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({

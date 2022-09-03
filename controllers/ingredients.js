@@ -17,7 +17,7 @@ module.exports = {
       
         try {
             const recipeName = await Recipe.findOne({recipeName: pageName})
-            const ingredientsCount = await Ingredient.countDocuments({recipe: pageName})
+            const ingredientsCount = await Ingredient.countDocuments({recipe: pageName, completed:false})
             const ingredients = await Ingredient.find({recipe: pageName})
             res.render('ingredient.ejs', {recipeName: recipeName, count: ingredientsCount, ingredients: ingredients, user: req.user})
         }catch(err){
@@ -38,7 +38,7 @@ module.exports = {
     },
     markComplete: async (req, res)=>{
         try{
-            await Ingredient.findOneAndUpdate({_id:req.body.ingredientIdFromJSFile},{
+            await Ingredient.findOneAndUpdate({_id:req.params.id},{
                 completed: true
             })
             console.log('Marked Complete')
@@ -49,7 +49,7 @@ module.exports = {
     },
     markIncomplete: async (req, res)=>{
         try{
-            await Ingredient.findOneAndUpdate({_id:req.body.ingredientIdFromJSFile},{
+            await Ingredient.findOneAndUpdate({_id:req.params.id},{
                 completed: false
             })
             console.log('Marked Incomplete')
@@ -59,9 +59,9 @@ module.exports = {
         }
     },
     deleteIngredient: async (req, res)=>{
-        console.log(req.body.ingredientIdFromJSFile)
+        console.log(req.params.id)
         try{
-            await Ingredient.findOneAndDelete({_id:req.body.ingredientIdFromJSFile})
+            await Ingredient.findOneAndDelete({_id:req.params.id})
             console.log('Deleted Ingredient')
             res.json('Deleted It')
         }catch(err){

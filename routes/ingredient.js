@@ -8,10 +8,10 @@ router.get('/:id', ingredientsController.getRecipeDetails)
 
 router.post('/createIngredient/:id', ingredientsController.createIngredient)
 
-router.put('/markComplete', ingredientsController.markComplete)
+router.put('/:id/markComplete', ingredientsController.markComplete)
 
-router.put('/markIncomplete', ingredientsController.markIncomplete)
+router.put('/:id/markIncomplete', ingredientsController.markIncomplete)
 
-router.delete('/deleteIngredient', ingredientsController.deleteIngredient)
+router.delete('/:id/deleteIngredient', ingredientsController.deleteIngredient)
 
 module.exports = router

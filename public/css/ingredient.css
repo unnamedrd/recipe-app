@@ -1,9 +1,13 @@
 
+.ingredientItem {
+    list-style: decimal;
+}
 
 .completed{
     text-decoration: line-through;
     color: gray;
 }
 .not{
-    text-decoration: underline;
+    color: darkred;
+    /* text-decoration: underline; */
 }
