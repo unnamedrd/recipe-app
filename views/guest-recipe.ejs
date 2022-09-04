@@ -17,7 +17,7 @@
         <p style="margin-bottom: .5%;"> <a href="/signup">Sign up</a> to make sure you don't lose your notes. </p>
         <p> Already a member? <a href="/login">Login</a></p>
     </header>
-    
+          
     <h1>Recipes</h1>
     <button type="button" class="openForm">Add Recipe</button>
         
@@ -43,20 +43,21 @@
 
 
 
+
     <section class="form-popup" id="myForm">
         <h2>Add New Recipe</h2>
         <form action="/recipes/createRecipe" method='POST' class="form-container">
             <label>Title</label>
-            <input type="text" placeholder="Enter Recipe Name" name='recipeName' class="input">
+            <input type="text" placeholder="Enter Recipe Name" name='recipeName' class="recipeNameInput">
             <label>Category</label>
-            <input type="text" placeholder="Category" name='recipeCategory' class="input">
+            <input type="text" placeholder="Category" name='recipeCategory' class="recipeCategoryInput">
             <label for="description">Description</label>
             <!-- <input type="text" placeholder="Optional Description" name='recipeDescription'> -->
-            <textarea id="description" name='recipeDescription' rows="5" class="input"></textarea>
+            <textarea id="description" name='recipeDescription' rows="5" class="recipeDescriptionInput"></textarea>
             <label>Photo</label>
-            <input type="file" placeholder="Photo" name='recipePhoto' accept="image/png, image/jpeg" class="input"> <!--there is also type="image"-->
+            <input type="file" placeholder="Photo" name='recipePhoto' accept="image/png, image/jpeg" class=""> <!--there is also type="image"-->
             <!-- <input type="submit"> -->
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit" class="btn" id="submit">Submit</button>
             <button type="button" class="btn cancel closeForm">Close</button>
         </form>
     </section>
