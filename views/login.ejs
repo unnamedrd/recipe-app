@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <script src="https://use.fontawesome.com/d3fe77b87c.js"></script>
     <script src="../public/css/login.css"></script>
+=======
+
 </head>
 <body>
+    
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
@@ -25,10 +29,15 @@
         <input type="password" name="password" placeholder="Password">
         <input type="submit">
     </form>-->
+
     <div class="container">
       <div class="text-center"
       <h1>Login</h1>
     <div class="w-50 p-3" style="background-color: #eee;">
+
+
+
+
     <form action="/login" method="POST" role="form" class="form-horizontal">
         <!-- Email input -->
         <div class="form-outline mb-4">
@@ -63,8 +72,13 @@
       
         <!-- Register buttons -->
         <div class="text-center">
+
           <p>Not a member? <a href="/signup">Register</a></p>
           <!--<p>or sign up with:</p>
+
+          <p>Not a member? <a href="#!">Register</a></p>
+          <p>or sign up with:</p>
+
           <button type="button" class="btn btn-link btn-floating mx-1">
             <i class="fab fa-facebook-f"></i>
           </button>
@@ -82,9 +96,11 @@
           </button>
         </div>
       </form>
+
     </div>-->
         </div>
       </div>
+
 
 
 
