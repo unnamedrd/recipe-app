@@ -6,6 +6,8 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const flash = require('express-flash')
 const logger = require('morgan')
+const bodyParser = require('body-parser')
+const multer = require('multer')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const ingredientRoutes = require('./routes/ingredient')
@@ -33,6 +35,11 @@ app.use(
     })
   )
   
+ //bodyParser middleware 
+ 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
@@ -43,6 +50,13 @@ app.use('/', mainRoutes)
 app.use('/recipes', recipeRoutes)
 app.use('/ingredients', ingredientRoutes)
 
+var storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+});
+
+var upload = multer({storage:storage})
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
