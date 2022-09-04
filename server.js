@@ -10,7 +10,12 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const ingredientRoutes = require('./routes/ingredient')
 const recipeRoutes = require('./routes/recipe')
+<<<<<<< HEAD
 const multer = require('multer') //multer allows uploading  files for the img
+=======
+const guestRoutes = require('./routes/guest')
+
+>>>>>>> 609104ff7e9dfb02c6aeccc2ed615889abc64173
 
 require('dotenv').config({path: './config/.env'})
 
@@ -46,6 +51,8 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use('/recipes', recipeRoutes)
 app.use('/ingredients', ingredientRoutes)
+app.use('/guest', guestRoutes)
+
 
  
 app.listen(process.env.PORT, ()=>{
