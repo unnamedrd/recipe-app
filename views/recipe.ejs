@@ -14,21 +14,9 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <script src="https://use.fontawesome.com/d3fe77b87c.js"></script>
     </head>
     <body>
-
-
-
-
-
-      
-
-
-
-
-
-
-
 
 
         <!-- Responsive navbar-->
@@ -60,7 +48,7 @@
 
         <ul class="recipeList">
             <% recipes.forEach( el => { %>
-                    <li class='recipeItem' data-id='<%=el._id%>'>
+                    <li class='recipeItem' data-id='<%=el._id%>' style="margin: 2%;">
                         <a href="/ingredients/<%=el.recipeName%>"><span class="recipeTitle"> <%= el.recipeName %></span></a>
                         <span class='del'> Delete </span>
                     </li>
@@ -68,13 +56,15 @@
             <% }) %>    
             </ul>
     
-    <form action="/recipes/createRecipe" method='POST'>
-        <input type="text" placeholder="Enter Recipe Name" name='recipeName'>
-        <input type="submit">
+    <form action="/recipes/createRecipe" method='POST' style="margin-bottom: 2%;">
+        <input type="text" placeholder="Enter New Recipe Name" name='recipeName' class="form-control" style="width:30%;">
+        <input class="btn btn-primary" type="submit" value="Submit" style="margin-left: .5%;">
     </form>
-    <div class="logout">
-    <a href="/logout">Logout</a>
-    </div>
+    
+
+
+
+    
         <!-- Page Content-->
         <section class="pt-4">
             <div class="container px-lg-5">
@@ -97,7 +87,7 @@
                                 <p class="mb-0">As always, Start Bootstrap has a powerful collectin of free templates.</p>
                             </div>
                         </div>
-                    </div>
+                    <!--</div>
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
@@ -133,10 +123,37 @@
                                 <p class="mb-0">Start Bootstrap has been the leader in free Bootstrap templates since 2013!</p>
                             </div>
                         </div>
+                    </div>-->
+                </div>
+            </div>
+        </section>
+
+        <% recipes.forEach( el => { %>
+        <section class="pt-4">
+            <div class="container px-lg-5">
+                <!-- Page Features-->
+                <div class="row gx-lg-5">
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
+                                
+                                    <h2 class="fs-4 fw-bold" data-id='<%=el._id%>'><%= el.recipeName %></h2>
+                                    <a href="/ingredients/<%= el.recipeName %>"><p class="mb-0" style="padding-bottom: 1%;">Recipe</p></a>
+                                <span class="del"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></span>
+                                <span class='del'> Delete </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <% }) %>
+
+        <div class="logout">
+            <a style="padding-bottom: 3%;" href="/logout">Logout</a>
+            </div>
+        
 
                <!-- Footer-->
         <!--<footer class="py-5 bg-dark">
