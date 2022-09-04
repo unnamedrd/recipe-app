@@ -87,3 +87,15 @@
 .form-container .btn:hover {
   opacity: 1;
 }
+
+
+
+ /* login and signup option header for the guest page */
+.guest-header {
+    width: 100%;
+    /* position: fixed;
+    z-index: 1; */
+}
+.guest-header > p {
+    text-align: center;
+}
