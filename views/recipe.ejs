@@ -12,7 +12,9 @@
 </head>
 <body>
     <h1>Recipes</h1>
-
+    <form action="/recipes/getSortedRecipe" method="GET">
+        <input type="button" name="Sort A-Z" id=""> <!--for sorting recipe-->
+    </form>
  
         <ul class="recipeList">
             <% recipes.forEach( el => { %>
