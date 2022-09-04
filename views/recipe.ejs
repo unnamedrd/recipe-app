@@ -28,8 +28,9 @@
   
    
 
-    <form action="/recipes/createRecipe" method='POST'>
-        <input type="text" placeholder="Enter Recipe Name" name='recipeName'>
+    <form action="/recipes/createRecipe" method='POST' enctype="multipart/form-data"> <!--adding enctype to try to allow form to upload img-->
+        <input type="text" placeholder="Enter Recipe Name" name='recipeName'> 
+        <input type="file" name="" id=""><!--input for upload img-->
         <input type="submit">
     </form>
 

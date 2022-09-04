@@ -11,6 +11,9 @@ const RecipeSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
+  },
+  image:{       //adding img property into this schema, hopefully it works :)
+    type: String
   }
 })
 // look into images later...

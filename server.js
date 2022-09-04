@@ -10,6 +10,7 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const ingredientRoutes = require('./routes/ingredient')
 const recipeRoutes = require('./routes/recipe')
+const multer = require('multer') //multer allows uploading  files for the img
 
 require('dotenv').config({path: './config/.env'})
 
@@ -32,7 +33,10 @@ app.use(
       store: new MongoStore({ mongooseConnection: mongoose.connection }),
     })
   )
-  
+ 
+// multer middleware
+app.use(multer({dest:'./routes/recipe'}).single()) //adding destination for file uploading not sure if this will work, but leaving it here for now
+
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
