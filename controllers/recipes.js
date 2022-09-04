@@ -2,7 +2,7 @@
 const Recipe = require('../models/Recipe')
 module.exports = {
     getRecipes: async (req,res)=>{
-       
+    
         console.log(req.user)
         try{
             const recipeNames = await Recipe.find({userId:req.user.id})

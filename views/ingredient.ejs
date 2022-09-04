@@ -14,7 +14,10 @@
     <nav>
         <a href="/recipes">Back to your recipes</a>
     </nav>   
-    <h1><%= recipeName.recipeName %> Ingredients</h1>
+    <h1 id="recipeName"><%= recipeName.recipeName %></h1>
+        <button class="button uncrossAll">Uncross all items</button>
+        <button class="button crossAll">Cross all items</button>
+
     <ul>
         <% ingredients.forEach( el => { %>
             <li class='ingredientItem' data-id='<%=el._id%>'>

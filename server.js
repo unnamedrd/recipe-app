@@ -10,6 +10,8 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const ingredientRoutes = require('./routes/ingredient')
 const recipeRoutes = require('./routes/recipe')
+const guestRoutes = require('./routes/guest')
+
 
 require('dotenv').config({path: './config/.env'})
 
@@ -42,6 +44,8 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use('/recipes', recipeRoutes)
 app.use('/ingredients', ingredientRoutes)
+app.use('/guest', guestRoutes)
+
 
  
 app.listen(process.env.PORT, ()=>{
