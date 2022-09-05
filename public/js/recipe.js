@@ -31,16 +31,13 @@ async function deleteRecipe(){
     }
 }
 
-// Add Recipe Form
-// document.querySelector('.openForm').addEventListener('click', openForm)
-// document.querySelector('.closeForm').addEventListener('click', closeForm)
+// Recipe Form
+document.querySelector('.openForm').addEventListener('click', openForm)
+document.querySelector('.closeForm').addEventListener('click', closeForm)
 
-// function openForm() {
-//     document.getElementById("myForm").style.display = "block";
-// }
-// function closeForm() {
-//     document.getElementById("myForm").style.display = "none";
-// }
-
-
-
+function openForm() {
+    document.getElementById("myForm").classList.toggle('hidden')
+}
+function closeForm() {
+    document.getElementById("myForm").classList.add('hidden')
+}
