@@ -1,76 +1,4 @@
 
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/recipe.css">
-
-</head>
-<body>
-    <h1>Recipes</h1>
-    <button type="button" class="openForm">Add Recipe</button>
- 
-        <ul class="recipeList">
-            <% recipes.forEach( el => { %>
-                    <li class='recipeItem' data-id='<%=el._id%>'>
-                        <a href="/ingredients/<%=el.recipeName%>"><span class="recipeTitle"> <%= el.recipeName %></span></a>
-                        <span class='del'> Delete </span>
-                    </li>
-                    
-            <% }) %>    
-            </ul>
-        
-            <h2><%= user.userName %>, you have <%= count %> recipes!</h2>
-  
-   
-
-     <form action="/recipes/createRecipe" method='POST'>
-        <input type="text" placeholder="Enter Recipe Name" name='recipeName'>
-        <input type="text" placeholder="Enter Recipe Category" name='recipeCat'>
-        <input type="text" placeholder="Enter Description" name='recipeDescription'>
-         <input type="file" id="imageFile" name="filename">
-        <input type="submit">
-    </form> -->
-
-    <a href="/logout">Logout</a>
-
-
-    <!-- <section class="form-popup" id="myForm">
-        <h2>Add New Recipe</h2>
-        <form action="/recipes/createRecipe" method='POST' class="form-container">
-            <label>Title</label>
-            <input type="text" placeholder="Enter Recipe Name" name='recipeName'>
-            <label>Category</label>
-            <input type="text" placeholder="Category" name='recipeCategory'>
-            <label for="description">Description</label> -->
-            <!-- <input type="text" placeholder="Optional Description" name='recipeDescription'> -->
-            <!-- <textarea id="description" name='recipeDescription' rows="5"></textarea>
-            <label>Photo</label>
-            <input type="file" placeholder="Photo" name='recipePhoto' accept="image/png, image/jpeg"> there is also type="image" -->
-            <!-- <input type="submit"> -->
-            <!-- <button type="submit" class="btn">Submit</button>
-            <button type="button" class="btn cancel closeForm">Close</button>
-        </form>
-    </section>
-
-
-    <script src="/js/main.js"></script>
-    <script src="/js/recipe.js"></script>
-</body>
-</html> -->
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -84,13 +12,15 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
+        
         <link href="css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/recipe.css">
         <script src="https://use.fontawesome.com/d3fe77b87c.js"></script>
     </head>
     <body>
 
-
+        <a href="/logout">Logout</a>
 
         <!-- Responsive navbar-->
         <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -107,11 +37,11 @@
             </div>
         </nav>-->
         <!-- Header-->
-        <header class="py-5">
+        <header class="py-5 restOfPage">
             <div class="container px-lg-5">
                 <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
                     <div class="m-4 m-lg-5">
-                        <h1 class="display-5 fw-bold"><%= user.userName %>, you have <%= count %> recipes!</h1>
+                        <h1 class="display-5 fw-bold"> you have count  recipes!</h1>
                         <p class="fs-4">Browse, Edit, and Delete Your Recipes</p>
                         <!--<a class="btn btn-primary btn-lg" href="#!">Call to action</a>-->
                     </div>
@@ -119,21 +49,32 @@
             </div>
         </header>
 
-        <!-- <ul class="recipeList">
-            <% recipes.forEach( el => { %>
-                    <li class='recipeItem' data-id='<%=el._id%>' style="margin: 2%;">
-                        <a href="/ingredients/<%=el.recipeName%>"><span class="recipeTitle"> <%= el.recipeName %></span></a>
-                        <span class='del'> Delete </span>
-                    </li>
-                    
-            <% }) %>    
-            </ul> -->
+
     
-    <form action="/recipes/createRecipe" method='POST' style="margin-bottom: 2%;">
+    <!-- <form action="/recipes/createRecipe" method='POST' style="margin-bottom: 2%;">
         <input type="text" placeholder="Enter New Recipe Name" name='recipeName' class="form-control" style="width:30%;">
         <input class="btn btn-primary" type="submit" value="Submit" style="margin-left: .5%;">
-    </form>
-    
+    </form> -->
+    <button class="openForm">Create Recipe</button>
+      <section class="form-popup" id="myForm">
+        <h2>Add New Recipe</h2>
+        
+
+            <label>Title</label>
+            <input type="text" placeholder="Enter Recipe Name" name='recipeName' class="recipeNameInput" required>
+            <label>Category</label>
+            <input type="text" placeholder="Category" name='recipeCategory' class="recipeCategoryInput" required>
+            <label for="description">Description</label> 
+           <input type="text" placeholder="Optional Description" name='recipeDescription' class="recipeDescriptionInput"> 
+           <!-- <textarea id="description" name='recipeDescription' rows="5"></textarea> -->
+            <label>Photo</label>
+            <input type="file" placeholder="Photo" name='recipePhoto' accept="image/png, image/jpeg" id="inputfiles" class="imageInput">
+             <!-- there is also type="image"  -->
+           
+           <button type="submit" class="btn closeForm" id="submit">Submit</button>
+            <button type="button" class="btn cancel closeForm" >Close</button>
+     
+    </section> 
 
 
 
@@ -202,22 +143,24 @@
         </section>  -->
 
         
-        <section class="pt-4">
+        <section class="pt-4 restOfPage" id="recipeSection">
             
-            <div class="container px-lg-5">
+            <div class="container px-lg-5 restOfPage">
                 <!-- Page Features-->
                 
                 <div class="row gx-lg-5">
-                    <% recipes.forEach( el => { %>
-                    <div class="col-lg-6 col-xxl-4 mb-5" data-id='<%=el._id%>'>
+                   
+                    <div class="col-lg-6 col-xxl-4 mb-5" data-id='#'>
                         
                         <div class="card bg-light border-0 h-100">
                             
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4" ><i class="bi bi-collection"></i></div>
-                                    <h2 class="fs-4 fw-bold" ><%= el.recipeName %></h2>
-                                    <a href="/ingredients/<%= el.recipeName %>"><p class="mb-0" style="padding-bottom: 1%;">Recipe</p></a>
+                                    <h2 class="fs-4 fw-bold" id="placeName">recipe name</h2>
+                                    <span id="placeCategory"></span>
+                                    <p id="placeDescription"></p>
+                                    <a href="#"><p class="mb-0" style="padding-bottom: 1%;">Recipe</p></a>
                                 <span ><i class="fa fa-trash fa-lg del" aria-hidden="true"></i></span>
                                 <span class='del'> Delete </span>
                             </div>
@@ -225,7 +168,7 @@
                         </div>
                       
                     </div>
-                    <% }) %>
+                   
                 </div>
                 
             </div>
@@ -246,12 +189,13 @@
         <!-- Core theme JS-->
         <script src="/js/scripts.js"></script>
         <script src="/js/main.js"></script>
-    <script src="/js/recipe.js"></script>
+        <script src="/js/guest-recipe.js"></script>
 
             <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    
 
 
 

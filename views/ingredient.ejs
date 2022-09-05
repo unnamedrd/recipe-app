@@ -8,32 +8,51 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/ingredient.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/d3fe77b87c.js"></script>
 </head>
 <body>
    
     <nav>
-        <a href="/recipes">Back to your recipes</a>
+        <a class="btn btn-primary" href="/recipes" role="button" style="margin-left:2%; margin-top: 2%;">Back to My Recipes</a>
     </nav>   
-    <h1><%= recipeName.recipeName %> Ingredients</h1>
-    <ul>
-        <% ingredients.forEach( el => { %>
-            <li class='ingredientItem' data-id='<%=el._id%>'>
-                <span class="<%= el.completed === true ? 'completed' : 'not'%>"> <%= el.ingredient %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
 
-    <h2><%= user.userName %>, you have <%= count %> things left to get.</h2>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1 id="recipeName"><%= recipeName.recipeName %> Ingredients</h1>
+            <h3><%= user.userName %>, you have <%= count %> ingredient(s) left to get</h3>
+            <form action="/ingredients/createIngredient/<%= recipeName.recipeName %>" method='POST'>
+                <input type="text" placeholder="Enter Ingredient" name='ingredientItem' class="form-control" style="width:25%;">
+                <input class="btn btn-primary" type="submit" value="Submit" style="margin-top: 20px;">
+            </form>
+          </div>
+          <!--classes labeled col are wip, image can potentially be placed here-->
 
-    <form action="/ingredients/createIngredient/<%= recipeName.recipeName %>" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='ingredientItem'>
-        <input type="submit">
-    </form>
+          <div class="col">
+            <button class="button crossAll btn btn-success" style="margin-top: 20px; margin-bottom: 20px;">Cross all items</button>
+            <button class="button uncrossAll btn btn-danger" style="margin-top: 20px; margin-bottom: 20px;">Uncross all items</button>
+            <ul class="list-group">
+                <% ingredients.forEach( el => { %>
+                    <li class='ingredientItem list-group-item' data-id='<%=el._id%>'>
+                        <span class="<%= el.completed === true ? 'completed' : 'not'%>"> <%= el.ingredient %></span>
+                        <!--<span class='del'> Delete </span>-->
+                        <i class="fa fa-trash fa-lg del" aria-hidden="true"></i>
+                    </li>
+                <% }) %>    
+            </ul>
+          </div>
+        </div>
+    </div>
 
-    <a href="/logout">Logout</a>
+
+    <a style="margin-left:2%; padding-bottom: 3%;" href="/logout">Logout</a>
 
     <script src="/js/main.js"></script>
     <script src="/js/ingredient.js"></script>
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZcrossorigin="anonymous"></script>
+     <!-- Include all compiled plugins (below), or include individual files as needed -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIXNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 </body>
 </html>
