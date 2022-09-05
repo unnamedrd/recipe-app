@@ -30,8 +30,11 @@
 
 
 /* The popup form - hidden by default */
-.form-popup {
+.hidden {
   display: none;
+}
+
+.form-popup {
   position: fixed;
   top: 0;
   right: 0;
