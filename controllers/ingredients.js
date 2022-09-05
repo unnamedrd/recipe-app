@@ -58,6 +58,28 @@ module.exports = {
             console.log(err)
         }
     },
+    markCompleteAll: async (req, res)=>{
+        try{
+            await Ingredient.updateMany({recipe:req.params.id},{
+                completed: true
+            })
+            console.log('Marked Complete')
+            res.json('Marked Complete')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    markIncompleteAll: async (req, res)=>{
+        try{
+            await Ingredient.updateMany({recipe:req.params.id},{
+                completed: false
+            })
+            console.log('Marked Incomplete')
+            res.json('Marked Incomplete')
+        }catch(err){
+            console.log(err)
+        }
+    },
     deleteIngredient: async (req, res)=>{
         console.log(req.params.id)
         try{

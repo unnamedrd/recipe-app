@@ -6,19 +6,21 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const flash = require('express-flash')
 const logger = require('morgan')
-const bodyParser = require('body-parser')
 const multer = require('multer')
+const {GridFsStorage} = require("multer-gridfs-storage")
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const ingredientRoutes = require('./routes/ingredient')
 const recipeRoutes = require('./routes/recipe')
-//const imgRecipe = require('./models/Recipe')
+const guestRoutes = require('./routes/guest')
 
 
 require('dotenv').config({path: './config/.env'})
 
 // Passport config
 require('./config/passport')(passport)
+
+
 
 connectDB()
 
@@ -39,26 +41,22 @@ app.use(
   
  //bodyParser middleware 
  
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+
 
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
+
 
 app.use(flash())
   
 app.use('/', mainRoutes)
 app.use('/recipes', recipeRoutes)
 app.use('/ingredients', ingredientRoutes)
+app.use('/guest', guestRoutes)
 
-var storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, file.fieldname + '-' + Date.now())
-  }
-});
 
-var upload = multer({ storage: storage })
+
 
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
