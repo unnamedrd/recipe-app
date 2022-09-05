@@ -12,6 +12,8 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const ingredientRoutes = require('./routes/ingredient')
 const recipeRoutes = require('./routes/recipe')
+//const imgRecipe = require('./models/Recipe')
+
 
 require('dotenv').config({path: './config/.env'})
 
@@ -56,8 +58,8 @@ var storage = multer.diskStorage({
   }
 });
 
-var upload = multer({storage:storage})
- 
+var upload = multer({ storage: storage })
+
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
 })    
