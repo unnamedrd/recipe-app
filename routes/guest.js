@@ -6,6 +6,7 @@ const { ensureGuest } = require('../middleware/auth')
 
 
 router.get('/', ensureGuest, guestController.getRecipes)
+
 router.get('/ingredients', ensureGuest, guestController.getIngredients)
 
 module.exports = router
