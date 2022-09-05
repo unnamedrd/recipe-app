@@ -3,9 +3,8 @@ const dbConfig = require("../config/database");
 const MongoClient = require("mongodb").MongoClient;
 const GridFSBucket = require("mongodb").GridFSBucket;
 const url = dbConfig.url;
-const baseUrl = "http://localhost:8500/files/";
+//const baseUrl = "http://localhost:8500/files/";
 const mongoClient = new MongoClient(url);
-
 /*
 const uploadFiles = async (req, res) => {
   try {
