@@ -15,7 +15,7 @@ module.exports = {
  
     createRecipe: async (req, res)=>{
         try{
-            await Recipe.create({recipeName: req.body.recipeName, userId: req.user.id})
+            await Recipe.create({recipeName: req.body.recipeName, userId: req.user.id, recipeCategory: req.body.recipeCategory, recipeDescription: req.body.recipeDescription, recipePhoto: req.body.recipePhoto})
             console.log('Todo has been added!')
             res.redirect('/recipes')
         }catch(err){
