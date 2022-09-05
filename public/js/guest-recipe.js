@@ -5,37 +5,37 @@ const recipeNameInput = document.querySelector('.recipeNameInput')
 const recipeDescriptionInput = document.querySelector('.recipeDescriptionInput')
 const recipeCategoryInput = document.querySelector('.recipeCategoryInput')
 
-localStorage.setItem('recipeNames', [])
-localStorage.setItem('recipeDescription', [])
-localStorage.setItem('recipeCategories', [])
+
 
 submitButton.addEventListener('click', storeValues)
 
 
    
 
+// let recipes = []
+
+
+ localStorage.setItem('recipes', JSON.stringify([]))
+ let localRecipes = localStorage.getItem('recipes')
 
 function storeValues() {
+
     let recipeInput = recipeNameInput.value
     let descriptionInput = recipeDescriptionInput.value
     let categoryInput = recipeCategoryInput.value
-    let recipes = {
+    let newRecipe =  {
         recipe: recipeInput,
         category: categoryInput,
         description: descriptionInput,
-        
     }
+
+    localRecipes.push(newRecipe)
+  
     console.log(recipeCategoryInput.value)
-    if(!localStorage.getItem('recipes'))  {
-        window.localStorage.setItem('recipes', JSON.stringify(recipes))
-    }  else {
-        let rec = 'recipes'
-        let i = 1
-        while(localStorage.getItem(`${rec + i}`)) {
-            rec += 1
-            window.localStorage.setItem(`${rec}`, JSON.stringify(recipes))
-        }
-    }
+   
+       localStorage.setItem('recipes', JSON.stringify(localRecipes))
+      
+    
    
 
     // Array.from(inputs).forEach(e => {

@@ -88,10 +88,7 @@
     <body>
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> bf310e224beb4f18cc6608256305d3b623a3b704
         <!-- Responsive navbar-->
         <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-lg-5">
@@ -119,7 +116,7 @@
             </div>
         </header>
 
-        <ul class="recipeList">
+        <!-- <ul class="recipeList">
             <% recipes.forEach( el => { %>
                     <li class='recipeItem' data-id='<%=el._id%>' style="margin: 2%;">
                         <a href="/ingredients/<%=el.recipeName%>"><span class="recipeTitle"> <%= el.recipeName %></span></a>
@@ -127,7 +124,7 @@
                     </li>
                     
             <% }) %>    
-            </ul>
+            </ul> -->
     
     <form action="/recipes/createRecipe" method='POST' style="margin-bottom: 2%;">
         <input type="text" placeholder="Enter New Recipe Name" name='recipeName' class="form-control" style="width:30%;">
@@ -139,10 +136,10 @@
 
     
         <!-- Page Content-->
-        <section class="pt-4">
-            <div class="container px-lg-5">
+        <!-- <section class="pt-4">
+            <div class="container px-lg-5"> -->
                 <!-- Page Features-->
-                <div class="row gx-lg-5">
+                <!-- <div class="row gx-lg-5">
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
@@ -159,7 +156,7 @@
                                 <h2 class="fs-4 fw-bold">Free to download</h2>
                                 <p class="mb-0">As always, Start Bootstrap has a powerful collectin of free templates.</p>
                             </div>
-                        </div>
+                        </div> -->
                     <!--</div>
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
@@ -197,31 +194,40 @@
                             </div>
                         </div>
                     </div>-->
-                </div>
+                <!-- </div>
             </div>
-        </section>
+        </section>  -->
 
-        <% recipes.forEach( el => { %>
+        
         <section class="pt-4">
+            
             <div class="container px-lg-5">
                 <!-- Page Features-->
+                
                 <div class="row gx-lg-5">
-                    <div class="col-lg-6 col-xxl-4 mb-5">
+                    <% recipes.forEach( el => { %>
+                    <div class="col-lg-6 col-xxl-4 mb-5" data-id='<%=el._id%>'>
+                        
                         <div class="card bg-light border-0 h-100">
+                            
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
                                 
-                                    <h2 class="fs-4 fw-bold" data-id='<%=el._id%>'><%= el.recipeName %></h2>
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4" ><i class="bi bi-collection"></i></div>
+                                    <h2 class="fs-4 fw-bold" ></h2><%= el.recipeName %></h2>
                                     <a href="/ingredients/<%= el.recipeName %>"><p class="mb-0" style="padding-bottom: 1%;">Recipe</p></a>
-                                <span class="del"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></span>
+                                <span ><i class="fa fa-trash fa-lg del" aria-hidden="true"></i></span>
                                 <span class='del'> Delete </span>
                             </div>
+                          
                         </div>
+                      
                     </div>
+                    <% }) %>
                 </div>
+                
             </div>
         </section>
-        <% }) %>
+       
 
         <div class="logout">
             <a style="padding-bottom: 3%;" href="/logout">Logout</a>
@@ -235,7 +241,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="/js/scripts.js"></script>
         <script src="/js/main.js"></script>
     <script src="/js/recipe.js"></script>
 

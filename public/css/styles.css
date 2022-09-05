@@ -719,10 +719,50 @@ progress {
   margin-top: calc(-1 * var(--bs-gutter-y));
   margin-right: calc(-0.5 * var(--bs-gutter-x));
   margin-left: calc(-0.5 * var(--bs-gutter-x));
+  /* test */
 }
+.pt-4 {
+  /* display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around; */
+  /* border: 1px solid blue; */
+}
+.container.px-lg-5 {
+  /* display: flex; */
+  /* border: 3px solid black; */
+}
+
+
+.row.gx-lg-5 {
+  display: flex;
+  justify-content: space-between;
+  /* border: 2px solid red; */
+
+}
+.row.gx-lg-5 > :first-child {
+
+}
+.col-lg-6.col-xxl-4.mb-5 {
+  /* display: flex; */
+  flex-basis: 40%;
+  /* border: 2px solid green; */
+  border-radius: 7%;
+}
+.row:after, .row:before {
+  display: none !important;
+  /* review this line */
+}
+
+
+.card.bg-light.border-0.h-100 {
+  width: 100%;
+}
+
+
+
 .row > * {
   flex-shrink: 0;
-  width: 100%;
+  width: 100%;    
   max-width: 100%;
   padding-right: calc(var(--bs-gutter-x) * 0.5);
   padding-left: calc(var(--bs-gutter-x) * 0.5);
@@ -4556,7 +4596,8 @@ textarea.form-control-lg {
 .card {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  /* flex-direction: column; */
   min-width: 0;
   word-wrap: break-word;
   background-color: #fff;
