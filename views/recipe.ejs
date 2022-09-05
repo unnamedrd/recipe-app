@@ -1,4 +1,5 @@
 
+
 <!--<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,6 +72,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -131,10 +133,27 @@
     
     <form action="/recipes/createRecipe" method='POST' style="margin-bottom: 2%;">
         <input type="text" placeholder="Enter New Recipe Name" name='recipeName' class="form-control" style="width:30%;">
-        <input class="btn btn-primary" type="submit" value="Submit" style="margin-left: .5%;">
+        <input class="btn btn-primary openForm" type="submit" value="Submit" style="margin-left: .5%;">
     </form>
     
-
+    <!--New Recipe Form-->
+    <section class="form-popup hidden" id="myForm">
+        <h2>Add New Recipe</h2>
+        <form action="/recipes/createRecipe" method='POST' class="form-container">
+            <label>Title</label>
+            <input type="text" placeholder="Enter Recipe Name" name='recipeName'>
+            <label>Category</label>
+            <input type="text" placeholder="Category" name='recipeCategory'>
+            <label for="description">Description</label>
+            <!-- <input type="text" placeholder="Optional Description" name='recipeDescription'> -->
+            <textarea id="description" name='recipeDescription' rows="5"></textarea>
+            <label>Photo</label>
+            <input type="file" placeholder="Photo" name='recipePhoto' accept="image/png, image/jpeg"> <!--there is also type="image"-->
+            <!-- <input type="submit"> -->
+            <button type="submit" class="btn">Submit</button>
+            <button type="button" class="btn cancel closeForm">Close</button>
+        </form>
+    </section>
 
 
     
@@ -244,7 +263,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="/js/scripts.js"></script>
+        <!-- <script src="/js/scripts.js"></script> --> 
         <script src="/js/main.js"></script>
     <script src="/js/recipe.js"></script>
 
