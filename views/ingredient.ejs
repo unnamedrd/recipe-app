@@ -21,7 +21,7 @@
         <div class="row">
           <div class="col">
             <h1 id="recipeName"><%= recipeName.recipeName %> Ingredients</h1>
-            <h3><%= user.userName %>, you have <%= count %> ingredients left to get</h3>
+            <h3><%= user.userName %>, you have <%= count %> ingredient(s) left to get</h3>
             <form action="/ingredients/createIngredient/<%= recipeName.recipeName %>" method='POST'>
                 <input type="text" placeholder="Enter Ingredient" name='ingredientItem' class="form-control" style="width:25%;">
                 <input class="btn btn-primary" type="submit" value="Submit" style="margin-top: 20px;">
