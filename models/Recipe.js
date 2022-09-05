@@ -11,6 +11,18 @@ const RecipeSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
+  },
+  recipeCategory: {
+    type: String,
+    required: false,
+  },
+  recipeDescription: {
+    type: String,
+    required: false,
+  },
+  recipePhoto: {
+    type: String, // change type
+    required: false,
   }
 })
 // look into images later...
