@@ -5,6 +5,8 @@ const GridFSBucket = require("mongodb").GridFSBucket;
 const url = dbConfig.url;
 const baseUrl = "http://localhost:8500/files/";
 const mongoClient = new MongoClient(url);
+
+/*
 const uploadFiles = async (req, res) => {
   try {
     await upload(req, res);
@@ -78,4 +80,4 @@ module.exports = {
   uploadFiles,
   getListFiles,
   download,
-};
+};*/
