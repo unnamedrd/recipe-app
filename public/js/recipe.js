@@ -2,7 +2,7 @@ const deleteBtn = document.querySelectorAll('.del')
 // const recipeItem = document.querySelectorAll('span.not')
 const recipeSpan = document.querySelectorAll('.recipeTitle')
 const recipeForm = document.querySelector('.recipeForm')
-
+const submitButton = document.querySelector('#submit')
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteRecipe)
@@ -31,6 +31,7 @@ async function deleteRecipe(){
 // Recipe Form
 document.querySelector('.openForm').addEventListener('click', openForm)
 document.querySelector('.closeForm').addEventListener('click', closeForm)
+document.getElementById('submit').addEventListener('click', closeForm)
 
 function openForm() {
     document.getElementById("myForm").style.display = 'block'
