@@ -9,9 +9,6 @@ Array.from(deleteBtn).forEach((el)=>{
 })
 
 
-
-
-
 async function deleteRecipe(){
     const todoId = this.parentNode.parentNode.parentNode.parentNode.dataset.id
     console.log(todoId)

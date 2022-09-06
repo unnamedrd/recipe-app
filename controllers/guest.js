@@ -8,7 +8,7 @@ module.exports = {
         res.render('guest-recipe.ejs')
     },
     getIngredients: (req,res) => {
-        res.redner('guest-ingredient.ejs')
+        res.render('guest-ingredient.ejs')
     },
   
     

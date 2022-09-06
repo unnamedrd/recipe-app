@@ -8,6 +8,9 @@ const RecipeSchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  image: {
+    type:String, 
+  }, 
   userId: {
     type: String,
     required: true
