@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/ingredient.css">
+    <script src="https://use.fontawesome.com/d3fe77b87c.js"></script>
+</head>
+<body>
+   
+    <nav>
+        <a class="btn btn-primary" href="/guest" role="button" style="margin-left:2%; margin-top: 2%;">Back to My Recipes</a>
+    </nav>   
+
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1 id="recipeName">recipe name</h1>
+            <h3> you have number ingredient(s) left to get</h3>
+            
+                <input type="text" placeholder="Enter Ingredient" name='ingredientItem' class="form-control" id="ingredientInput" style="width:25%;">
+                <input class="btn btn-primary" type="submit" value="Submit" style="margin-top: 20px;" id="submit">
+            
+          </div>
+          <!--classes labeled col are wip, image can potentially be placed here-->
+
+          <div class="col">
+            <button class="button crossAll btn btn-success" style="margin-top: 20px; margin-bottom: 20px;">Cross all items</button>
+            <button class="button uncrossAll btn btn-danger" style="margin-top: 20px; margin-bottom: 20px;">Uncross all items</button>
+            <ul class="list-group">
+               
+                    <li class='ingredientItem list-group-item' data-id='#'>
+                        <span class="#"> ingredient name</span>
+                        <!--<span class='del'> Delete </span>-->
+                        <i class="fa fa-trash fa-lg del" aria-hidden="true"></i>
+                    </li>
+             
+            </ul>
+          </div>
+        </div>
+    </div>
+
+
+    <a style="margin-left:2%; padding-bottom: 3%;" href="/logout">Logout</a>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/guest-ingredient.js"></script>
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZcrossorigin="anonymous"></script>
+     <!-- Include all compiled plugins (below), or include individual files as needed -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIXNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+</body>
+</html>
