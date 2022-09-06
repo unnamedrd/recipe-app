@@ -76,7 +76,9 @@ function displayValue() {
         let count = arr.length
         let content = document.createTextNode(`You have ${count} recipes!`)
         recipeCount.appendChild(content)
-    
+
+     
+
 
 
   }
