@@ -33,8 +33,8 @@ document.querySelector('.openForm').addEventListener('click', openForm)
 document.querySelector('.closeForm').addEventListener('click', closeForm)
 
 function openForm() {
-    document.getElementById("myForm").classList.toggle('hidden')
+    document.getElementById("myForm").style.display = 'block'
 }
 function closeForm() {
-    document.getElementById("myForm").classList.add('hidden')
+    document.getElementById("myForm").style.display = 'none'
 }
