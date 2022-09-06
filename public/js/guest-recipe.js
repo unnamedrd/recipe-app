@@ -77,9 +77,6 @@ function displayValue() {
         let content = document.createTextNode(`You have ${count} recipes!`)
         recipeCount.appendChild(content)
 
-     
-
-
 
   }
 
