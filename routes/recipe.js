@@ -8,6 +8,11 @@ router.get('/', ensureAuth, recipesController.getRecipes)
 
 router.post('/createRecipe', recipesController.createRecipe)
 
+
+// created new route for sorted recipe list---havent tested.
+router.get('/getSortedRecipe', recipesController.getSortedRecipe)
+
+
 router.delete('/deleteRecipe', recipesController.deleteRecipe)
 
 //add get statements and route to Controller for image

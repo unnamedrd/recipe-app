@@ -14,7 +14,13 @@
 </head>
 <body>
     <h1>Recipes</h1>
+<<<<<<< HEAD
+    <form action="/recipes/getSortedRecipe" method="GET">
+        <input type="button" name="Sort A-Z" id=""> <!--for sorting recipe-->
+    </form>
+=======
     <button type="button" class="openForm">Add Recipe</button>
+>>>>>>> 609104ff7e9dfb02c6aeccc2ed615889abc64173
  
         <ul class="recipeList">
             <% recipes.forEach( el => { %>
@@ -30,11 +36,22 @@
   
    
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <form action="/recipes/createRecipe" method='POST' enctype="multipart/form-data"> <!--adding enctype to try to allow form to upload img-->
+        <input type="text" placeholder="Enter Recipe Name" name='recipeName'> 
+        <input type="file" name="" id=""><!--input for upload img-->
+=======
+    <!-- <form action="/recipes/createRecipe" method='POST'>
+        <input type="text" placeholder="Enter Recipe Name" name='recipeName'>
+>>>>>>> 609104ff7e9dfb02c6aeccc2ed615889abc64173
+=======
      <form action="/recipes/createRecipe" method='POST'>
         <input type="text" placeholder="Enter Recipe Name" name='recipeName'>
         <input type="text" placeholder="Enter Recipe Category" name='recipeCat'>
         <input type="text" placeholder="Enter Description" name='recipeDescription'>
          <input type="file" id="imageFile" name="filename">
+>>>>>>> 6e17cb8857563f1d226ae47f659bb01e206c9604
         <input type="submit">
     </form> -->
 
