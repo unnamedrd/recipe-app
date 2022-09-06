@@ -103,9 +103,10 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/recipe.css" rel="stylesheet" />
+        
         <link href="css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <link href="css/recipe.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/d3fe77b87c.js"></script>
     </head>
     <body>
@@ -149,10 +150,12 @@
             <% }) %>    
             </ul> -->
     
-    <form action="/recipes/createRecipe" method='POST' style="margin-bottom: 2%;">
+    <!-- <form action="/recipes/createRecipe" method='POST' style="margin-bottom: 2%;"> -->
         <!-- <input type="text" placeholder="Enter New Recipe Name" name='recipeName' class="form-control" style="width:30%;"> -->
+        <section  class="newRecipeButton">
         <input class="btn btn-primary openForm" type="submit" value="Enter New Recipe" style="margin-left: .5%;">
-    </form>
+    </section>
+    <!-- </form> -->
     
     <!--New Recipe Form-->
     <section class="form-popup" id="myForm">

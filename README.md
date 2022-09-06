@@ -1,44 +1,118 @@
-# Introduction
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
 
----
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+## Table of contents
+1. [Overview](#overview)
+2. [Process](#process)
+    1. [Design](#design)
+       1. [Requirements](#requirements)
+    3. [Build](#build)
+        1. [Tech Stack](#stack)
+        3. [Installation](#installation)
+        4. [User Journey](#userjourney)
+5. [PostProject Wrap-up](#post)
+    1. [Learnings](#learnings)
+    2. [Known Bugs](#bugs)
+    3. [Next Features](#features)
+    4. [How to Contribute](#contribute)
+    5. [License](#license)
+7. [Acknowledgements](#ack)
 
----
+## PURPOSE
+### Overview  <a name="overview"></a>: This is a fullstack recipe app, that allows a user to create a repository of recipes, complete with a grocery ingredient list. 
 
-# Objectives
+Please refer to the demo for sample output. 
+The live site/demo is here: https:// [insert link to live site]
 
-- It's a beginner level app created to understand how MVC concept and logins are added
+**Project Status: MVP in Progress**
 
----
 
-# Who is this for? 
+## PROCESS <a name="process"></a>
+## Design <a name="design"></a>
 
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
+[Insert Design files if you have them; Figma, Sketch, PDF Design System]
 
----
 
-# Packages/Dependencies used 
 
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
 
----
+#### Project Requirements:  <a name="requirements"></a>
 
-# Install all the dependencies or node packages used for development via Terminal
+MVP Features 
+- Create Recipe Page
+- Create Ingredients Page 
 
-`npm install` 
 
----
+Extra
+- Sort Recipes 
+- Guest LogIn/Authentication 
 
-# Things to add
 
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
- ---
- 
- Have fun testing and improving it! 😎
 
+
+## Build <a name="build"></a>
+
+
+
+#### Tech Stack <a name="stack"></a>
+
+| Front-End | Back-End | Deploy |
+| --- | --- | --- |
+ | Javascript, EJS, CSS | Node, Express, MongoDB | Heroku? |
+
+
+
+##### *User Journey* <a name="journey"></a>
+- User logs in or continues as guest on landing page 
+- Once authenicated the user can create a recipe template using a form
+- This creates a recipe card
+- User can click on the recipe card to:  
+        - * Add ingredients for recipe
+        - * Track progress of ingredient list by clicking on item
+        
+
+
+#### Installation <a name="installation"></a>
+
+In order to run the program please do the following:
+
+
+## Post Project Wrap Up <a name="post"></a>
+
+
+#### Learnings from Project:<a name="learnings"></a>
+
+
+
+
+
+#### Known Bugs <a name="bugs"></a>
+- [ ] The upload photo feature is a WIP
+- [ ] 
+
+
+#### Additional Features for future Development <a name="features"></a>
+- [ ] Password reset #1
+- [ ] Upload Photo #2 
+- [ ] Sort table  #3
+
+#### How to Contribute <a name="Contribute"></a>
+
+#### License <a name="license"></a>
+
+## Acknowledgements <a name="ack"></a>
+
+The following tutorials were utilized in creating some of the features of this project. 
+Thanks to the Content Creators/Teachers
+Leon Noel 
+Claire @Mayanwolfe
+
+Collaborators
+
+| Name | Role| Contact |
+| --- | --- | --- |
+ |Ahmed | Software Engineer| |
+| Leon |  Software Engineer |  |
+| MK |  Software Engineer ||
+| Najwana |  Software Engineer ||
+| Noel |  Software Engineer ||
 

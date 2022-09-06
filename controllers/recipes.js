@@ -16,7 +16,7 @@ module.exports = {
     createRecipe: async (req, res)=>{
         try{
             await Recipe.create({recipeName: req.body.recipeName, userId: req.user.id, recipeCategory: req.body.recipeCategory, recipeDescription: req.body.recipeDescription, recipePhoto: req.body.recipePhoto})
-            console.log('Todo has been added!')
+            console.log('Recipe has been added!')
             res.redirect('/recipes')
         }catch(err){
             console.log(err)
@@ -27,7 +27,7 @@ module.exports = {
         console.log(req.body.todoIdFromJSFile)
         try{
             await Recipe.findOneAndDelete({_id:req.body.todoIdFromJSFile})
-            console.log('Deleted Todo')
+            console.log('Deleted recipe')
             res.json('Deleted It')
         }catch(err){
             console.log(err)
