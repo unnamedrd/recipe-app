@@ -30,17 +30,20 @@
 
 
 /* The popup form - hidden by default */
+
 .form-popup {
   display: none;
   position: fixed;
   top: 0;
   right: 0;
+  background-color: white;
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
 
 /* Add styles to the form container */
 .form-container {
+  display: block;
   max-width: 500px;
   padding: 15px;
   background-color: white;
@@ -99,3 +102,5 @@
 .guest-header > p {
     text-align: center;
 }
+
+

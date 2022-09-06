@@ -9,11 +9,8 @@ Array.from(deleteBtn).forEach((el)=>{
 })
 
 
-
-
-
 async function deleteRecipe(){
-    const todoId = this.parentNode.dataset.id
+    const todoId = this.parentNode.parentNode.parentNode.parentNode.dataset.id
     console.log(todoId)
     try{
         const response = await fetch('recipes/deleteRecipe', {
@@ -31,16 +28,13 @@ async function deleteRecipe(){
     }
 }
 
-// Add Recipe Form
+// Recipe Form
 document.querySelector('.openForm').addEventListener('click', openForm)
 document.querySelector('.closeForm').addEventListener('click', closeForm)
 
 function openForm() {
-    document.getElementById("myForm").style.display = "block";
+    document.getElementById("myForm").style.display = 'block'
 }
 function closeForm() {
-    document.getElementById("myForm").style.display = "none";
+    document.getElementById("myForm").style.display = 'none'
 }
-
-
-
