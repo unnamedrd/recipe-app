@@ -8,20 +8,21 @@ const recipeName = document.getElementById('recipeName')
 // const placeName = document.getElementById('placeName')
 console.log(ingredientInput.innerText)
 
-ingredientInput.addEventListener('click', storeValues)
+submitButton.addEventListener('click', storeValues)
 
 
 function storeValues() {
     const arr = JSON.parse(localStorage.getItem('ingredients')) || []
-    const ingredientArr = []
         arr.push({
-            recipe: recipeName.textContent,
-            ingredients: ingredientInput.value
+            recipe: recipeName.innerText,
+            ingredients: ingredientInput.value,
+            completed: false,
         })
             
         // if(arr[arr.length-3].trim() === "" || arr[arr.length-2].trim() === '') {
         //  return  closeForm()
         // }
         localStorage.setItem('ingredients', JSON.stringify(arr)) 
+        location.reload()
      
 }
