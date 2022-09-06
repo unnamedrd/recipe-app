@@ -5,9 +5,9 @@ const RecipeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  description: {
-    type: String,
-  },
+  // description: {
+  //   type: String,
+  // },
   image: {
     type:String, 
   }, 
@@ -15,10 +15,8 @@ const RecipeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-<<<<<<< HEAD
-  image:{       //adding img property into this schema, hopefully it works :)
-    type: String
-=======
+        //adding img property into this schema, hopefully it works :)
+   
   recipeCategory: {
     type: String,
     required: false,
@@ -30,7 +28,6 @@ const RecipeSchema = new mongoose.Schema({
   recipePhoto: {
     type: String, // change type
     required: false,
->>>>>>> 6e17cb8857563f1d226ae47f659bb01e206c9604
   }
 })
 // look into images later...
