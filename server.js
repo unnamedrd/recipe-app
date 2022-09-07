@@ -29,6 +29,7 @@ connectDB();
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+// next 2 lines enable us to look at different parts of the request coming through. Pull info from forms, etc
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
