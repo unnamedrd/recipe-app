@@ -3,8 +3,8 @@ module.exports = {
       if (req.isAuthenticated()) {
         return next()
       } else {
-        // res.redirect('/')
-        res.redirect('/guest')
+        res.redirect('/')
+        // res.redirect('/guest')
       }
     },
 
@@ -15,5 +15,7 @@ module.exports = {
         res.redirect('/recipes')
       }
     }
+
+
   }
   

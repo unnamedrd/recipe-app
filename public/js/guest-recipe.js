@@ -8,27 +8,45 @@ const imageInput = document.querySelector('.imageInput')
 const recipeSection = document.getElementById('recipeSection')
 // const sectionClone = recipeSection.cloneNode(true)
 const recipeCount = document.getElementById('recipeCount')
-const recipeContainer = document.querySelector('.gx-lg-5')
+const recipeContainer = document.querySelector('.recipeContainer')
+
+
 const placeName = document.getElementById('placeName')
 const placeCategory = document.getElementById('placeCategory')
 const placeDescription = document.getElementById('placeDescription')
 
 const restOfPage = document.querySelector('.restOfPage')
+const originalClone = document.querySelector('.original')
 
 displayValue()
 
 
 
+
+
 submitButton.addEventListener('click', storeValues)
 
+// trashIcon.addEventListener('click', deleteRecipe)
 
 
 // const recipes = []
 
+// const trashIconArr = Array.from(trashIcon)
 
 
 // const storedrecipes = JSON.parse(localStorage.getItem('recipes'))
 
+function deleteRecipe() {
+    const arr = JSON.parse(localStorage.getItem('recipes')) || []
+    
+    const recipeName = this.parentNode.parentNode.childNodes[1].textContent
+    console.log(recipeName)
+    const indexDelete = arr.filter(e => e.recipe === recipeName)
+    console.log(indexDelete)
+    arr.splice(indexDelete,1)
+    localStorage.setItem('recipes', JSON.stringify(arr))
+    location.reload()
+}
 
 
 function storeValues() {
@@ -47,6 +65,7 @@ function storeValues() {
         localStorage.setItem('recipes', JSON.stringify(arr)) 
         document.getElementById("myForm").classList.remove('toggle') 
         location.reload()
+        
 }
 
  
@@ -54,15 +73,19 @@ function storeValues() {
 
 function displayValue() {
     const arr = JSON.parse(localStorage.getItem('recipes')) || []
+
 //    const clone = document.body.appendChild(sectionClone)
 // const clone = document.body.appendChild(sectionClone)
 //    const content = document.createTextNode()
-        
-        for(let i = 0; i < arr.length; i++) {
-            const sectionClone = recipeSection.cloneNode(true)
 
+        for(let i = 0; i < arr.length; i++) {
+
+            const sectionClone = recipeSection.cloneNode(true)
             recipeContainer.appendChild(sectionClone)
            
+            
+
+
             // sectionClone.classList.remove('hidden')
             const recipe = document.createTextNode(arr[i].recipe)
             const category = document.createTextNode(arr[i].category)
@@ -76,14 +99,15 @@ function displayValue() {
         let count = arr.length
         let content = document.createTextNode(`You have ${count} recipes!`)
         recipeCount.appendChild(content)
-
-
   }
 
 
 
 
-
+  const trashIcon = document.querySelectorAll('.trashIcon')
+  Array.from(trashIcon).forEach(e => {
+      e.addEventListener('click', deleteRecipe)
+  })
 
 
 
