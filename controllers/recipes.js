@@ -36,7 +36,7 @@ module.exports = {
 
     getSortedRecipe: async (req,res) =>{  //added new async funtion to try to sort the recipe A-Z Please take a look at this!!!  havent tested yet
         try{
-            const sortedRecipe = await Recipe.find({userId:req.user.id}).sort({recipeName:1})
+            const sortedRecipe = await Recipe.find({userId:req.user.id}).sort({recipeName:1}).lean();
             const recipesCount = await Recipe.countDocuments({userId:req.user.id})
             res.render('recipe.ejs',{recipes: sortedRecipe, count:recipesCount, user: req.user})
         }catch(err){

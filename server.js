@@ -1,5 +1,4 @@
 
-
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -20,6 +19,7 @@ const guestRoutes = require("./routes/guest");
 
 
 
+
 require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
@@ -34,6 +34,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(logger("dev"));
+
+
 // Sessions
 app.use(
     session({
@@ -45,7 +47,17 @@ app.use(
   )
  
 
+// multer middleware
+app.use(multer({dest:'./routes/recipe'}).single()) //adding destination for file uploading not sure if this will work, but leaving it here for now
+
+
+
 //bodyParser middleware
+
+
+
+//bodyParser middleware
+
 
 // Passport middleware
 app.use(passport.initialize());
