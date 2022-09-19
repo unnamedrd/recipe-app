@@ -23,7 +23,12 @@
                 <ul class="list-group" style="margin-top: 20%;">
                     <li class="list-group-item"><a class="btn btn-primary btn-lg active" href="/login"    role="button">Login</a></li>
                     <li class="list-group-item"><a class="btn btn-primary btn-lg active" href="/signup"   role="button">Signup</a></li>
-                    <li class="list-group-item"><a class="btn btn-primary btn-lg active" href="/guest"    role="button">Continue as Guest</a></li>
+                    <li class="list-group-item">
+                        <form action="/guest" method="post"> 
+                            <button class="btn btn-primary btn-lg active"  role="button">Continue as a Guest</button>
+                            <!-- <a class="btn btn-primary btn-lg active" href="/guest" role="button">Continue as Guest</a>  -->
+                            </form>
+                        </li>
                 </ul>
             </div>
         </div>
