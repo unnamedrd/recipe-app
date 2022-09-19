@@ -744,7 +744,8 @@ progress {
 }
 .col-lg-6.col-xxl-4.mb-5 {
   /* display: flex; */
-  flex-basis: 40%;
+  flex-basis: 30%;
+  max-width: 300px;
   /* border: 2px solid green; */
   border-radius: 7%;
 }
