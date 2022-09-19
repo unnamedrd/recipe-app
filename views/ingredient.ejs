@@ -13,13 +13,33 @@
 </head>
 <body>
    
+    <!-- Nav -->
     <nav>
-        <a class="btn btn-primary" href="/recipes" role="button" style="margin-left:2%; margin-top: 2%;">Back to My Recipes</a>
+        <a class="btn btn-primary" href="/recipes" role="button" style="margin: 2% 11% 2% 20.5%;">Back to My Recipes</a>
     </nav>   
 
+    <!-- Jumbotron -->
     <div class="container">
+        <div class="p-5 text-center bg-image rounded-3" style="
+        background-image: url('https://i.postimg.cc/gJcWgkD1/toa-heftiba-o-Qv-ESMKUkz-M-unsplash.jpg');
+        height: 300px;
+        ">
+            <!--<div class="mask" style="background-color: rgba(0, 0, 0, 0.3);">
+                <div class="d-flex justify-content-center align-items-center h-100">
+                    <div class="text-white">
+                        <h1 class="mb-3">Recipe Ingredients</h1>
+                        <p>hello world</p>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+<!-- Container & Section Divs -->
+    <div class="container" style="margin: 2% 10% 2% 10%;">
+        <!-- Putting 2 Columns in a Row-->
         <div class="row">
-          <div class="col">
+            <!-- Column 1 Recipe Name, Count, Ingredient Form, Submit Button-->
+          <div class="col-xs-6 pl-2">
             <h1 id="recipeName"><%= recipeName.recipeName %> Ingredients</h1>
             <h3><%= user.userName %>, you have <%= count %> ingredient(s) left to get</h3>
             <form action="/ingredients/createIngredient/<%= recipeName.recipeName %>" method='POST'>
@@ -29,8 +49,9 @@
           </div>
           <!--classes labeled col are wip, image can potentially be placed here-->
 
-          <div class="col">
-            <button class="button crossAll btn btn-success" style="margin-top: 20px; margin-bottom: 20px;">Cross all items</button>
+          <!-- Column 2 Cross & Uncross Buttons, List, Description-->
+          <div class="col-xs-6" style="border-left: 2px solid black; margin-bottom: 10%;">
+            <button class="button crossAll btn btn-success" style="margin-top: 20px; margin-bottom: 20px; margin-left: 2%;">Cross all items</button>
             <button class="button uncrossAll btn btn-danger" style="margin-top: 20px; margin-bottom: 20px;">Uncross all items</button>
             <ul class="list-group">
                 <% ingredients.forEach( el => { %>
@@ -41,21 +62,19 @@
                     </li>
                 <% }) %>    
             </ul>
+            <h2 style="margin-left: 2%;"><u>Description</u></h2>
+            <p style="margin-left: 2%;"><%= recipeName.recipeDescription %></p>
           </div>
-
-          <div class="col">
-            <h2>Description</h2>
-            <p><%= recipeName.recipeDescription %></p>
             <!-- <form action="/ingredients/<%= recipeName.recipeName %>/editDescription" method='POST'>
                 <input type="text" name='recipeName.recipeDescription' value="<%= recipeName.recipeDescription %>" class="form-control" style="width:25%;">
                 <input class="btn btn-primary editDescription" type="submit" value="Edit" style="margin-top: 20px;">
             </form> -->
-          </div>
+          
         </div>
     </div>
 
-
-    <a style="margin-left:2%; padding-bottom: 3%;" href="/logout">Logout</a>
+    <!-- Logout -->
+    <a style="margin: 10% 10% 2% 11%; padding-bottom: 3%;" href="/logout">Logout</a>
 
     <script src="/js/main.js"></script>
     <script src="/js/ingredient.js"></script>

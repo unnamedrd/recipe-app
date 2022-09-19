@@ -2,6 +2,7 @@ const passport = require('passport')
 const validator = require('validator')
 const User = require('../models/User')
 
+
  exports.getLogin = (req, res) => {
     if (req.user) {
       return res.redirect('/recipes')
@@ -10,6 +11,8 @@ const User = require('../models/User')
       title: 'Login'
     })
   }
+
+
   
   exports.postLogin = (req, res, next) => {
     const validationErrors = []
@@ -27,14 +30,19 @@ const User = require('../models/User')
       if (!user) {
         req.flash('errors', info)
         return res.redirect('/login')
-      }
+      } 
       req.logIn(user, (err) => {
         if (err) { return next(err) }
         req.flash('success', { msg: 'Success! You are logged in.' })
         res.redirect(req.session.returnTo || '/recipes')
-      })
+      }) 
+   
+      
     })(req, res, next)
+  
   }
+
+ 
   
   exports.logout = (req, res) => {
     req.logout(() => {
@@ -94,3 +102,112 @@ const User = require('../models/User')
       })
     })
   }
+
+  // exports.getGuestLogin = (req, res) => {
+  //   if (req.user) {
+  //     return res.redirect('guest/recipes')
+  //   }
+  //   res.render('index', {
+  //     title: 'Login'
+  //   })
+  // }
+  exports.postGuestLogin = async (req,res) => {
+  
+try {
+
+  const user = new User({
+    userName: 'Guest'
+  })
+  user.save((err) => {
+    if (err) { return next(err) }
+    req.logIn(user, (err) => {
+      if (err) {
+        return next(err)
+      }
+      res.redirect('/recipes')
+    })
+  })
+
+  console.log("Successfully logged in!");
+  // return user;
+} catch (err) {
+  console.error(err);
+}
+}
+
+  // exports.getGuestLogin = 
+  //   passport.authenticate('anonymous', {session: false}, (req,res) => {
+  //     console.log('hey')
+  //     res.json({ anonymous: true })
+  //   })
+  
+
+  // exports.postGuestLogin = (req, res, next) => {
+  //   passport.authenticate('local', (err, user, info) => {
+  //     if (err) { return next(err) }
+  //     if (!user) {
+  //       req.flash('errors', info)
+  //       return res.redirect('/login')
+  //     } 
+  //     req.logIn(user, (err) => {
+  //       if (err) { return next(err) }
+  //       req.flash('success', { msg: 'Success! You are logged in.' })
+  //       res.redirect(req.session.returnTo || 'guest/recipes')
+  //     })
+  //   })(req, res, next)
+  // }
+// exports.postGuestLogin = 
+
+//   passport.authenticate(('anonymous'),async (req, res) => {
+//     try {
+
+//       const guestInfo = await User.create({userName: 'Guest', session: req.session, guest: true})
+//       console.log('heya')
+//       res.json({ name: 'anonymous' })
+     
+//     }  catch(err) {
+//       console.error(err)
+//     }
+//   })
+  // passport.authenticate(['basic', 'anonymous'], { session: false }),
+  // function(req, res) {
+  //   if (req.user) {
+  //     res.json({ name: req.user.username });
+  //   } else {
+  //     res.json({ name: 'anonymous' });
+  //   }
+  // });
+
+  
+
+
+  
+  // exports.getGuest = (req,res) => {
+   
+  //     res.render('guest-recipe.ejs')
+  // }
+ 
+  
+  // exports.postGuest = (req,res) => {
+  //   passport.authenticate('anonymous', { session: false })
+  //   if (req.user) {
+  //     res.json({ username: req.user.username, email: req.user.email });
+  //   } else {
+  //     res.json({ anonymous: true });
+  //   }
+  
+  // }
+  
+  
+  
+
+
+    // passport.authenticate('anonymous', { session: false }),
+    // function(req, res){
+    //   if (req.user) {
+    //     res.json({ username: req.user.username, email: req.user.email });
+    //   } else {
+    //     res.json({ anonymous: true });
+    //   }
+    // });
+  

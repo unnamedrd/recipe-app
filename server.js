@@ -1,17 +1,21 @@
-const express = require('express');
+
+const express = require("express");
 const app = express();
-const mongoose = require('mongoose')
-const passport = require('passport')
-const session = require('express-session')
-const MongoStore = require('connect-mongo')(session)
-const flash = require('express-flash')
-const logger = require('morgan')
-const connectDB = require('./config/database')
-const mainRoutes = require('./routes/main')
-const ingredientRoutes = require('./routes/ingredient')
-const recipeRoutes = require('./routes/recipe')
-const multer = require('multer') //multer allows uploading  files for the img
-const guestRoutes = require('./routes/guest');
+const cors = require("cors");
+const mongoose = require("mongoose");
+const passport = require("passport");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+const flash = require("express-flash");
+const logger = require("morgan");
+const multer = require("multer");
+const { GridFsStorage } = require("multer-gridfs-storage");
+const connectDB = require("./config/database");
+const mainRoutes = require("./routes/main");
+const ingredientRoutes = require("./routes/ingredient");
+const recipeRoutes = require("./routes/recipe");
+const guestRoutes = require("./routes/guest");
+
 
 
 
@@ -25,6 +29,7 @@ connectDB();
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+// next 2 lines enable us to look at different parts of the request coming through. Pull info from forms, etc
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -33,7 +38,6 @@ app.use(logger("dev"));
 
 // Sessions
 app.use(
-
     session({
       secret: 'keyboard cat',
       resave: false,
@@ -42,16 +46,15 @@ app.use(
     })
   )
  
+
 // multer middleware
 app.use(multer({dest:'./routes/recipe'}).single()) //adding destination for file uploading not sure if this will work, but leaving it here for now
 
-  session({
-    secret: "keyboard cat",
-    resave: false,
-    saveUninitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  })
-;
+
+
+//bodyParser middleware
+
+
 
 //bodyParser middleware
 
