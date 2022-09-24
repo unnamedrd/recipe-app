@@ -1,5 +1,7 @@
 
 const Recipe = require('../models/Recipe')
+const cloudinary = require('../middleware/cloudinary')
+
 module.exports = {
     getRecipes: async (req,res)=>{
     
@@ -14,8 +16,16 @@ module.exports = {
     },
  
     createRecipe: async (req, res)=>{
-        try{
-            await Recipe.create({recipeName: req.body.recipeName, userId: req.user.id, recipeCategory: req.body.recipeCategory, recipeDescription: req.body.recipeDescription, recipePhoto: req.body.recipePhoto})
+        try {
+            const result = await cloudinary.uploader.upload(req.file.path);
+            await Recipe.create({
+                recipeName: req.body.recipeName,
+                userId: req.user.id,
+                recipeCategory: req.body.recipeCategory,
+                recipeDescription: req.body.recipeDescription,
+                recipePhoto: result.secure_url,
+                cloudinaryID: result.public_id,
+            })
             console.log('Recipe has been added!')
             res.redirect('/recipes')
         }catch(err){
@@ -25,7 +35,8 @@ module.exports = {
 
     deleteRecipe: async (req, res)=>{
         console.log(req.body.todoIdFromJSFile)
-        try{
+        try {
+            await cloudinary.uploader.destroy(post.cloudinaryID)
             await Recipe.findOneAndDelete({_id:req.body.todoIdFromJSFile})
             console.log('Deleted recipe')
             res.json('Deleted It')
