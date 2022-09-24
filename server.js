@@ -9,7 +9,6 @@ const MongoStore = require("connect-mongo")(session);
 const flash = require("express-flash");
 const logger = require("morgan");
 const multer = require("multer");
-const { GridFsStorage } = require("multer-gridfs-storage");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const ingredientRoutes = require("./routes/ingredient");
@@ -46,19 +45,6 @@ app.use(
     })
   )
  
-
-// multer middleware
-app.use(multer({dest:'./routes/recipe'}).single()) //adding destination for file uploading not sure if this will work, but leaving it here for now
-
-
-
-//bodyParser middleware
-
-
-
-//bodyParser middleware
-
-
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());

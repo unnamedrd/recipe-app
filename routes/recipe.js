@@ -1,12 +1,13 @@
 const express = require('express')
 const router = express.Router()
+const upload = require('../middleware/multer')
 const recipesController = require('../controllers/recipes') 
 const { ensureAuth } = require('../middleware/auth')
 //add controller for image
 
 router.get('/', ensureAuth, recipesController.getRecipes)
 
-router.post('/createRecipe', recipesController.createRecipe)
+router.post('/createRecipe', upload.single("file"), recipesController.createRecipe)
 
 
 // created new route for sorted recipe list---havent tested.
